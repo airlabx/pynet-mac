@@ -5,6 +5,8 @@
 
 # randomNetwork(network_var='1.1.1.1.')
 
+import pdb
+
 def normalize(mac_addr, case='u'):
   
     if mac_addr[4:5] == '.':
@@ -13,12 +15,14 @@ def normalize(mac_addr, case='u'):
         mac_addr = mac_addr.split('-')
     elif mac_addr[1:2] and mac_addr[3:4] == ':':
         mac_addr = mac_addr.split(':')
+
         # aces = ["a" + suit for suit in suits]
+        ## https://stackoverflow.com/questions/15738267/add-a-character-to-each-item-in-a-list
         mac_addr = ["0" + mac_addr for mac_addr in mac_addr]
         # for char in mac_addr:
         #     #need to select the firt on the list char[1] or mac_addr[char]
         #     mac_addr.append(str(0) + char)
-            
+        pdb.set_trace()   
 
 
     
