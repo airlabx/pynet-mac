@@ -1,0 +1,42 @@
+
+#configure cisco
+enable
+config t
+hostname switch1
+ip domain-name lab.airideas.net
+interface vlan 1
+ip address 10.10.1.200 255.255.0.0
+no shutdown
+
+show run
+show ip interface brief
+show ip route
+
+show running-config
+copy system:running-config nvram:startup-config
+
+
+#enable ssh on cisco
+#https://www.pluralsight.com/blog/tutorials/configure-secure-shell-ssh-on-cisco-router
+crypto key generate rsa
+		[1024]
+line vty 0 4
+login local
+transport input ssh
+exit
+username XXXX privilege 15 secret XXXX
+
+osx title
+echo -n -e "\033]0;ping \007"
+
+
+eveng1 - 10.10.1.60
+eveng1 - 10.10.1.61
+#sw1
+telnet 10.10.1.60 32769
+#sw2
+telnet 10.10.1.60 32770
+#linux1
+telnet 10.10.1.60 32771
+#linux2
+telnet 10.10.1.60 32771
