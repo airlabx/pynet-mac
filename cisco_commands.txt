@@ -18,6 +18,7 @@ copy system:running-config nvram:startup-config
 
 #enable ssh on cisco
 #https://www.pluralsight.com/blog/tutorials/configure-secure-shell-ssh-on-cisco-router
+confg t
 crypto key generate rsa
 		[1024]
 line vty 0 4
@@ -26,9 +27,13 @@ transport input ssh
 exit
 username XXXX privilege 15 secret XXXX
 
-osx title
+#osx title
 echo -n -e "\033]0;ping \007"
 
+#make a text file
+tclsh
+puts [open "flash:script.txt" w+] "Sopen "flash:script.txt" w+] "Some sample text""
+tclquit
 
 eveng1 - 10.10.1.60
 eveng1 - 10.10.1.61

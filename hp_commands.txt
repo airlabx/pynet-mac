@@ -1,0 +1,15 @@
+# enable ssh hp
+# http://h22208.www2.hpe.com/eginfolib/networking/docs/switches/RA/15-18/5998-8151_ra_2620_asg/content/ch08s06.html
+conf t
+# didnt work
+# crypto key generate ssh rsa bits 1024
+crypto key generate ssh rsa
+ip ssh
+show crypto host-public-key
+#verify
+show ip ssh
+
+
+#set a password
+enable
+password mamanger
